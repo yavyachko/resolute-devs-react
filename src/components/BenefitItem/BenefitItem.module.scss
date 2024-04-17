@@ -1,0 +1,39 @@
+    .benefit-wrapper{
+        max-width: 496px;
+        &__heading{
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            font-family: var(--font-roboto-bold);
+            margin-bottom: var(--space-s);
+            font-size: var(--font-size-h3-pc-tablet-mobile);
+            color: var(--white-main);
+            width:80%;
+            z-index: 2;
+        }
+        span{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color:var(--color-accent-main-transparent);   
+            position: absolute;
+            left: 242px;
+            top: -109px;
+            z-index: 1;
+            width: 242px;
+            height: 242px;
+            background: radial-gradient(
+            circle at center,
+            rgba(156, 115, 242, 0.1) 0%,
+            rgba(0, 0, 255, 0) 40%
+            );
+        }
+        &__description{
+            font-size: var(--font-size-p1-pc-tablet-mobile);
+            font-family: var(--font-roboto-regular);
+            color: var(--color-grey-main);
+            line-height: var(--line-height-standart);
+            filter:blur(100%);
+            width:100%;
+        }
+    }
