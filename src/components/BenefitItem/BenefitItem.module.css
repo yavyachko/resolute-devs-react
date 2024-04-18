@@ -1,5 +1,5 @@
 .benefit-wrapper {
-  max-width: 509px;
+  max-width: 496px;
 }
 .benefit-wrapper__heading {
   display: flex;
@@ -18,7 +18,7 @@
   align-items: center;
   color: var(--color-accent-main-transparent);
   position: absolute;
-  left: 83%;
+  left: 72%;
   top: -109px;
   z-index: 1;
   width: 242px;

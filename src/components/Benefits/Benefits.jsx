@@ -1,12 +1,13 @@
 import BenefitItem from "../BenefitItem/BenefitItem";
+import classes from "./Benefits.module.css"
 
 export default function Benefits() {
     return (
-        <section className="benefits">
-            <h2 className="benefits__heading">
+        <section className={classes["benefits"]}>
+            <h2 className={classes["benefits__heading"]}>
                 Benefits
             </h2>
-            <div className="benefits__content">
+            <div className={classes["benefits__content"]}>
                 <BenefitItem
                     heading={"Cutting-Edge Design"}
                     number={"01"}>
@@ -32,7 +33,6 @@ export default function Benefits() {
                     number={"05"}>
                     Launching your website is just the beginning. We provide ongoing maintenance and support to keep your site up-to-date and performing at its best.
                 </BenefitItem>
-                
             </div>
         </section>
     )

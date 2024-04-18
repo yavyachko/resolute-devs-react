@@ -28,7 +28,6 @@ header .logo {
 }
 header .navbar ul {
   display: flex;
-  flex-direction: row;
   gap: var(--space-m);
   position: relative;
   z-index: 200;

@@ -1,7 +1,7 @@
 .faq-wrapper {
   display: flex;
   flex-direction: column;
-  width: 49%;
+  width: 100%;
   align-items: start;
   justify-content: space-between;
   transition: all 0.3s ease-out;

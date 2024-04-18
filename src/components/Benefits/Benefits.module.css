@@ -1,4 +1,4 @@
-.services {
+.benefits {
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -8,18 +8,18 @@
   z-index: 2;
   margin-top: var(--space-5xl);
 }
-.services__header {
+.benefits__heading {
   font-family: var(--font-roboto-bold);
   font-size: var(--font-size-h2-pc-tablet);
   color: var(--color-white-main);
   text-decoration: underline;
   text-underline-offset: 12px;
 }
-.services__content {
+.benefits__content {
   display: flex;
-  flex-direction: column;
-  gap: 8px;
-  align-items: start;
-  justify-content: start;
+  justify-content: space-between;
   width: 100%;
-}/*# sourceMappingURL=Services.module.css.map */
+  max-width: 1240px;
+  flex-wrap: wrap;
+  gap: var(--space-m);
+}/*# sourceMappingURL=Benefits.module.css.map */
