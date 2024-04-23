@@ -1,4 +1,4 @@
-export default function ({ width }) {
+export default function HorizontalBar({ width }) {
   return (
   <svg
     width={width}

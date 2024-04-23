@@ -1,3 +1,5 @@
+@import '../basics/_media';
+
 @font-face {
     font-family: Roboto-Regular;
     src: url('../../assets/fonts/Roboto-Regular.ttf');
@@ -50,4 +52,26 @@
     --letter-spacing-3xl: 8px;
     --letter-spacing-4xl: 9px;
     --letter-spacing-5xl: 10px;
+}
+
+h2 {
+    font-family: var(--font-roboto-bold);
+    font-size: var(--font-size-h2-pc-tablet);
+    color: var(--color-white-main);
+    text-decoration: underline;
+    text-underline-offset: 12px;
+
+    @include w-max(624px) {
+        font-size: var(--font-size-h3-pc-tablet-mobile);
+    }
+}
+
+h3 {
+    font-family: var(--font-roboto-bold);
+    margin-bottom: var(--space-s);
+    font-size: var(--font-size-h3-pc-tablet-mobile);
+    color: var(--white-main);
+    @include w-max(620px) {
+        font-size: var(--font-size-h3-mobile);
+    }
 }

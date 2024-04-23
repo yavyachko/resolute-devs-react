@@ -1,55 +1,177 @@
-.background {
-    position: fixed;
-    z-index: 1;
-    content: '';
-    backdrop-filter: blur(10px);
-    width: 100vw;
-    height: 10%;
-    top: 0;
-    left: 0;
+@import '../../styles/basics/media';
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header {
+  position: sticky;
+  z-index: 200;
+  top: var(--space-safe);
+  width: 100%;
+  z-index: 200;
+  backdrop-filter: blur(10px);
+  padding: 24px 124px;
+  top: 0;
+  left: 0;
+
+  @include w-max(1000px) {
+    padding: 24px 74px;
+
+    @include w-max(500px) {
+      padding: 24px;
+    }
   }
-  
-  header {
-    position: sticky;
+
+  .logo {
+    position: relative;
     z-index: 200;
-    top: var(--space-safe);
-    width: 100%;
-    padding-left: 10%;
-    padding-right: 10%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-  
-    .logo {
+  }
+
+  .logo:hover path {
+    fill: var(--color-accent-main);
+    transition: 0.3s;
+  }
+
+  .navbar {
+    ul {
+      display: flex;
+      flex-direction: row;
+      gap: var(--space-m);
       position: relative;
       z-index: 200;
+
+      @include w-max(1000px) {
+        display: none;
+      }
+
+      li {
+        font-family: var(--font-roboto-regular);
+        font-size: var(--font-size-p2-pc-tablet);
+        color: var(--color-grey-main);
+        transition: all 0.1s ease-in-out;
+
+        &:hover {
+          color: var(--color-white-main);
+          cursor: pointer;
+        }
+
+        &:active {
+          color: var(--color-accent-main);
+        }
+      }
     }
-  
-    .navbar {
-      ul {
-        display: flex;
-        flex-direction: row;
-        gap: var(--space-m);
-        position: relative;
-        z-index: 200;
-  
-        li {
-          font-family: var(--font-roboto-regular);
-          font-size: var(--font-size-p2-pc-tablet);
-          color: var(--color-grey-main);
-          transition: all 0.1s ease-in-out;
-  
-          &:hover {
-            color: var(--color-white-main);
-            cursor: pointer;
+
+    .burger {
+      padding: 19px 15px;
+      position: relative;
+      border-radius: 50%;
+      flex-shrink: 0;
+      display: none;
+
+      @include w-max(1000px) {
+        display: block;
+      }
+
+      .burgerNavbar {
+        display: none;
+
+        @include w-max(1000px) {
+          display: flex;
+          position: fixed;
+          background: var(--color-grey-secondary);
+          height: 150vh;
+          top: 0;
+          left: 0;
+          width: 100%;
+          flex-direction: column;
+          clip-path: circle(50px at 90% -10%);
+          -webkit-clip-path: circle(50px at 90% -10%);
+          transition: all 0.5s ease-out;
+          pointer-events: none;
+        }
+
+        ul {
+          align-items: flex-start;
+          display: flex;
+          flex-direction: column;
+          gap: 28px;
+          margin-left: 74px;
+          margin-top: 89px;
+          @include w-max(500) {
+            margin-left: 24px;
           }
-  
-          &:active {
-            color: var(--color-accent-main);
+        }
+
+        .cross {
+          position: fixed;
+          top: 0;
+          right: 0;
+          padding: 48px 98px;
+
+          @include w-max(500) {
+            padding: 48px 48px;
           }
         }
       }
     }
   }
-  
+}
+
+.navbar {
+  .burgerNavbarActive {
+    display: flex;
+    position: fixed;
+    background: var(--color-grey-secondary);
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    flex-direction: column;
+    transition: all 0.5s ease-out;
+    clip-path: circle(150vw at 100% 100%);
+    -webkit-clip-path: circle(150vw at 100% 50%);
+    pointer-events: all;
+
+
+    ul {
+      align-items: flex-start;
+      display: flex;
+      flex-direction: column;
+      margin-left: 74px;
+      gap: 28px;
+      margin-top: 89px;
+      padding: var(--space-l) 0;
+
+      @include w-max(500) {
+        margin-left: 24px;
+      }
+
+      li {
+        font-family: var(--font-roboto-bold);
+        font-size: var(--font-size-h3-pc-tablet-mobile);
+        color: white;
+      }
+
+      .social {
+        margin-top: 36px;
+        display: flex;
+        gap: var(--space-sm)
+      }
+    }
+
+    .cross {
+      position: fixed;
+      top: 0;
+      right: 0;
+      padding: 48px 98px;
+
+      @include w-max(500) {
+        padding: 48px 48px;
+      }
+    }
+  }
+}

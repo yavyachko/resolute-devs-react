@@ -8,10 +8,11 @@
     --blur-36: 36%;
     --blur-8: 8%;
 
-    --shadow-200: 0 0 0 200% #9C73F2;
-    --shadow-180: 0 0 0 180% #9C73F2;
-    --shadow-160: 0 0 0 160% #9C73F2;
-    --shadow-140: 0 0 0 140% #9C73F2;
-    --shadow-120: 0 0 0 120% #9C73F2;
-    --shadow-120-white: 0 0 0 120% #ffffff;
+    --shadow-200: 0 0 200% #9C73F2;
+    --shadow-180: 0 0 180% #9C73F2;
+    --shadow-160: 0 0 160% #9C73F2;
+    --shadow-140: 0 0 140% #9C73F2;
+    --shadow-120: 0 0 120px 0 #9C73F2;
+    --shadow-60: 0 0 30px #9C73F2;
+    --shadow-120-white: 0 0 120px #ffffff;
 }

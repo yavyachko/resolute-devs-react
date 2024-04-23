@@ -1,0 +1,199 @@
+@import '../../styles/basics/media';
+
+.portfolio {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+
+    p {
+        max-width: 544px;
+        font-size: var(--font-size-p1-pc-tablet-mobile);
+        font-family: var(--font-roboto-regular);
+        color: var(--color-grey-main);
+        line-height: var(--line-height-standart);
+
+        @include w-max(1000px) {
+            font-size: var(--font-size-p2-pc-tablet);
+
+            @include w-max(728px) {
+                font-size: var(--font-size-p3-mobile);
+            }
+        }
+    }
+
+    span {
+        color: var(--color-accent-main);
+        line-height: var(--line-height-standart);
+        font-size: inherit;
+        position: relative;
+        font-family: var(--font-roboto-regular);
+    }
+
+    .blur {
+        $height: 100%;
+        border-radius: 50%;
+        position: absolute;
+        height: $height;
+        width: $height;
+        background-color: var(--color-accent-main);
+        filter: blur(25px);
+        z-index: 1;
+        display: inline-block;
+    }
+
+    &__content {
+        display: flex;
+        gap: 7.2vw;
+
+        @include w-max(660px) {
+            flex-direction: column;
+            gap:94px;
+        }
+
+        &_left {
+            display: flex;
+            flex-direction: column;
+            gap: 94px;
+
+            .portfolio__describe {
+                display: none;
+                @include w-max(660px) {
+                    display: block;
+                }
+            }
+        }
+
+        &_right {
+            display: flex;
+            flex-direction: column;
+            gap: 94px;
+            .portfolio__describe {
+                display: block;
+                @include w-max(660px) {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+.portfolioItem {
+    &__imgWrapper {
+        width: 100%;
+        border-radius: 14px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: var(--space-m);
+        position: relative;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    &__description {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: space-between;
+    }
+
+    &__descriptionText {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        h3 {
+            margin-bottom: var(--space-xs);
+        }
+
+        p {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+    }
+
+    &__descriptionYear {
+        color: var(--color-accent-main);
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        position: relative;
+        z-index: 2;
+        margin-left: 20px;
+    }
+
+    &__visit{
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 26.465%;
+        width:33%;
+        border-radius: 50%;
+        background-color: var(--color-accent-main);
+        color: white;
+        z-index: 2;
+        opacity: 0;
+        font-family: var(--font-roboto-regular);
+        svg{
+            margin-left: 5px;
+        }
+        @include w-max(1150){
+            width: 50%;
+            height: 40.1%
+        }
+    }
+}
+.portfolioItem:hover{
+    img{
+        filter:blur(5px);
+        transition: all 0.4s;
+    }
+    h3{
+        color: var(--color-accent-main)
+    }
+    .portfolioItem__visit{
+        opacity: 1;
+        transition: all 0.3s;
+    }
+}
+
+.coming-soon {
+    h2 {
+        text-decoration: none;
+
+        @include w-max(1000px) {
+            font-size: var(--font-size-h3-pc-tablet-mobile);
+        }
+    }
+
+    width: 100%;
+    height: 47.2vw;
+    max-height: 680px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: solid 1px;
+    border-radius: 14px;
+    gap: var(--space-xs);
+    text-align: center;
+    min-height: 320px;
+}
+
+a{
+    color:inherit;
+}
+a:active{
+    color:inherit;
+    .portfolioItem__visit{
+        background-color: black;
+    }
+}
+a:visited{
+    color:inherit;
+}

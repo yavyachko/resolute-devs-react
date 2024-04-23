@@ -1,45 +1,81 @@
+@import '../../styles/basics/media';
 .heading {
-    color: white;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  gap: var(--space-m);
+  margin-top: var(--space-3xl);
+  align-self: flex-end;
+
+  @include w-max(777px) {
+    flex-direction: column;
+    @include w-max(662px){
+      margin-top: 74px;
+    }
+  }
+
+
+  &--left {
+    font-family: var(--font-roboto-bold);
+    font-size: var(--font-size-p2-pc-tablet);
+    color: var(--color-grey-main);
     display: flex;
     flex-direction: row;
     gap: var(--space-m);
-    margin-top: var(--space-3xl);
-    align-self: flex-end;
-  
-    &--left {
-      font-family: var(--font-roboto-bold);
-      font-size: var(--font-size-p2-pc-tablet);
-      color: var(--color-grey-main);
-      display: flex;
-      flex-direction: row;
-      gap: var(--space-m);
-      align-items: start;
-      justify-content: start;
-  
-      span {
-        color: var(--color-accent-main);
+    align-items: start;
+    justify-content: start;
+    @include w-max(500){
+      font-size: var(--font-size-p3-mobile);
+    }
+
+    svg {
+      @include w-max(777px) {
+        display: none;
       }
     }
-  
-    &--right {
-      padding-left: var(--space-s);
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-m);
-  
-      h1 {
-        font-family: var(--font-roboto-bold);
-        font-size: var(--font-size-h1-pc);
-        color: var(--color-white-main);
-        line-height: 100%;
-        margin-top: -10px;
+
+    span {
+      color: var(--color-accent-main);
+    }
+  }
+
+  &--right {
+    padding-left: var(--space-s);
+    @include w-max(777px) {
+      padding-left: 0;
+    }
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-m);
+
+    h1 {
+      font-family: var(--font-roboto-bold);
+      font-size: var(--font-size-h1-pc);
+      color: var(--color-white-main);
+      line-height: 100%;
+      margin-top: -10px;
+      max-width: 679px;
+
+      @include w-max(1000px) {
+        font-size: var(--font-size-h1-tablet);
+        @include w-max(624px){
+          font-size: var(--font-size-h1-mobile);
+        }
       }
-  
-      p {
-        font-family: var(--font-roboto-regular);
-        font-size: var(--font-size-p1-pc-tablet-mobile);
-        line-height: 145%;
-        color: var(--color-grey-main);
+    }
+
+    p {
+      font-family: var(--font-roboto-regular);
+      font-size: var(--font-size-p1-pc-tablet-mobile);
+      line-height: 145%;
+      color: var(--color-grey-main);
+      max-width: 579px;
+      br{
+        display: none;
+        @include w-max(620px){
+          display: block;
+        }
       }
     }
   }
+}

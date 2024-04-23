@@ -1,0 +1,122 @@
+@import '../../styles/basics/media';
+.formBlock {
+    padding: var(--space-5xl) 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-l);
+    &__content {
+        display: flex;
+        flex-direction: row;
+        gap: var(--space-l);
+        @include w-max(1060px){
+            flex-direction: column;
+        }
+        @include w-max(1000px){
+            gap: var(--space-s)
+        }
+    }
+    &__state {
+        background-color: var(--color-grey-secondary);
+        padding:40px;
+        border-radius: 14px;
+        width:30.5%;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        h3{
+            line-height: var(--line-height-standart);
+            margin:0
+        }
+        @include w-max(1060px){
+            width:100%;
+            text-align: center;
+        }
+        @include w-max(1000px){
+            padding:20px
+        }
+    }
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    width:100%;
+    gap: var(--space-sm);
+    align-items: flex-start;
+    div{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        @include w-max(670px){
+            flex-direction: column;
+            gap: var(--space-sm)
+        }
+
+    }
+}
+
+input {
+    background-color: var(--color-black-main);
+    padding: 24px 50px;
+    border: solid 2px white;
+    border-radius: 14px;
+    color: white;
+    font-family: var(--font-roboto-regular);
+    font-size: var(--font-size-p2-pc-tablet);
+}
+input:focus{
+    border: 2px var(--color-accent-main) solid;
+    color: var(--color-accent-main);
+    transition: 0.3s;
+}
+[placeholder="Your name"] {
+    background: url(../../assets/icons/UserIcon.jsx) fixed 10px;
+    width:100%;
+}
+
+[placeholder="Phone"] {
+    background: url(../../assets/icons/PhoneIcon.jsx) fixed 10px;
+    width:48.5%;
+    @include w-max(670px){
+        width:100%;
+    }
+
+}
+
+[placeholder="Email"] {
+    background: url(../../assets/icons/EmailIcon.jsx) fixed 10px;
+    width: 48.5%;
+    @include w-max(670px){
+        width:100%;
+    }
+}
+[placeholder="Message"]{
+    width:100%;
+}
+[type="submit"]{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    color: white;
+    border-radius: 14px;
+    min-width: 149px;
+    background: var(--color-accent-main);
+    font-family: var(--font-roboto-regular);
+    font-size: var(--font-size-p1-pc-tablet-mobile);
+    line-height: var(--line-height-standart);
+    width:100%
+}
+[type="submit"]:hover{
+    cursor: pointer;
+    box-shadow: var(--shadow-120);
+    transition: 0.3s;
+}
+[type="submit"]:active{
+    color:var(--color-accent-main);
+    background: white;
+    box-shadow: var(--shadow-120-white);
+}
+

@@ -1,19 +1,22 @@
 @import './styles/basics/_reset.css';
 @import './styles/setup/_colors.css';
-@import './styles/setup/_fonts.css';
-@import './styles/setup/_variables.css';
+@import './styles/setup/_fonts.scss';
 @import './styles/setup/_spaces.css';
+@import './styles/basics/_media.scss';
 
 #root {
-    padding: var(--space-safe);
     background-color: var(--color-black-main);
     height: 100%;
 }
   
 main {
+    padding: 0 var(--space-safe);
+    max-width: 1240px;
     width: 80%;
-    margin: auto;
+    margin: 0 auto;
     color: white;
-    display: flex;
-    flex-direction: column;
+    @include w-max(500px){
+        margin: 0;
+        width:100%;
+    }
 }

@@ -1,5 +1,5 @@
 import { useState } from "react"
-import classes from "./ServiceItem.module.css"
+import classes from "./ServiceItem.module.scss"
 export default function ServiceItem({ children, icons }) {
     const [isActivated, setIsActivated] = useState(false)
 

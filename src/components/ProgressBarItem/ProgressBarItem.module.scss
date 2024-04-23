@@ -1,0 +1,59 @@
+@import '../../styles/basics/media';
+.progressBarItem {
+    width: 100%;    
+    display: flex;
+    align-items: flex-start;
+    gap: 5.625vw; 
+    @include w-max(400){
+        flex-direction: column;
+    }
+    &__textContent {
+        margin-bottom: var(--space-sm);
+        max-width: 438px;
+        h3 {
+            font-family: var(--font-roboto-bold);
+            font-size: var(--font-size-h3-pc-tablet-mobile);
+            line-height: var(--line-height-standart);
+            margin-bottom: var(--space-s);
+        }
+
+        p {
+            font-family: var(--font-roboto-regular);
+            font-size: var(--font-size-p1-pc-tablet-mobile);
+            color: var(--color-grey-main);
+            line-height: 145%;
+            @include w-max(1000px){
+                font-size: var(--font-size-p2-tablet);
+            }
+        }
+    }
+
+    &__middleIcon {
+        padding: 30px;
+        background-color: var(--color-accent-main-transparent);
+        border-radius: 50%;
+        width: fit-content;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 0 220px #9C73F2;
+        z-index: 2;
+        @include w-max(400){
+            padding: 18px;
+        }
+        svg{
+            @include w-max(400){
+                width: 34px;
+                height: 34px;
+            }
+        }
+    }
+    &__illustration{
+        svg{
+            margin-left: 6.9vw;
+        }
+        @include w-max(801){
+            display: none;
+        }
+    }
+}

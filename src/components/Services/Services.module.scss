@@ -1,3 +1,4 @@
+@import "../../styles/basics/_media";
 .services {
     display: flex;
     flex-direction: column;
@@ -7,22 +8,20 @@
     position: relative;
     z-index: 2;
     margin-top: var(--space-5xl);
-  
-    &__header {
-      font-family: var(--font-roboto-bold);
-      font-size: var(--font-size-h2-pc-tablet);
-      color: var(--color-white-main);
-      text-decoration: underline;
-      text-underline-offset: 12px;
+    @include w-max(620px){
+      margin-top: var(--space-xl);
     }
   
     &__content {
       display: flex;
-      flex-direction: column;
+      flex-wrap: wrap;
       gap: 8px;
       align-items: start;
       justify-content: start;
       width: 100%;
+      @include w-max(1500px){
+        flex-direction: column;
+      }
     }
   }
   

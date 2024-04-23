@@ -1,0 +1,31 @@
+@import '../../styles/basics/media';
+
+.progressBar{
+    width:100%;
+    &__content{
+        position: relative;
+        padding: var(--space-xl) 0;
+        width:100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--space-xl);
+        @include w-max(400){
+            padding: var(--space-m) 0;
+            gap: var(--space-ml);
+            margin-bottom: var(--space-l)
+        }
+    }
+    .progressPath{
+        position: absolute;
+        max-height: 88%;
+        z-index: 1;
+        top:0;
+        left:58px;
+        padding: 115px 0;
+        overflow: hidden;
+        @include w-max(400){
+            display: none;
+        }
+    }
+}

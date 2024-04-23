@@ -17,12 +17,12 @@ import ABCIcon from "../../assets/icons/services/ABCIcon"
 import YandexMetrixIcon from "../../assets/icons/services/YandexMetrixIcon"
 import GoogleAnalyticsIcon from "../../assets/icons/services/GoogleAnalytiscIcon.jsx"
 import CubeIcon from "../../assets/icons/services/CubeIcon"
-import classes from "./Services.module.css"
+import classes from "./Services.module.scss"
 import ReactIcon from "../../assets/icons/services/ReactIcon.jsx"
 
-export default function Services() {
+export default function Services({sectionRef}) {
     return (
-        <div className={classes["services"]}>
+        <section ref={sectionRef} className={classes["services"]}>
             <h2 className={classes["services__header"]}>Our services</h2>
             <div className={classes["services__content"]}>
                 <ServiceItem icons={[
@@ -60,7 +60,7 @@ export default function Services() {
                     <YandexMetrixIcon />,
                     <GoogleAnalyticsIcon />,
                     <AIIcon />]}>
-                    Seo
+                    SEO
                 </ServiceItem>
 
                 <ServiceItem icons={[
@@ -70,6 +70,6 @@ export default function Services() {
                     Deployment
                 </ServiceItem>
             </div>
-        </div>
+        </section>
     )
 }
