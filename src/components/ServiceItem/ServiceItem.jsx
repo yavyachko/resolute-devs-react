@@ -2,6 +2,7 @@ import { useState } from "react"
 import classes from "./ServiceItem.module.scss"
 import { useRef, useEffect } from "react"
 export default function ServiceItem({ children, icons }) {
+
     const [isActivated, setIsActivated] = useState(false)
 
     let mouseEnterHandler = () => {
