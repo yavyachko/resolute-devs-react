@@ -2,7 +2,6 @@ import React from "react";
 import ArrowIcon from "../../assets/icons/ArrowIcon";
 import { useEffect, useRef } from "react";
 import "./Portfolio.scss";
-import classes from "./Portfolio.scss"
 export default function PortfolioItem({
   heading,
   children,
