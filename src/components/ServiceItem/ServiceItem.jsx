@@ -1,17 +1,7 @@
-import { useState } from "react"
 import classes from "./ServiceItem.module.scss"
 import { useRef, useEffect } from "react"
 export default function ServiceItem({ children, icons }) {
 
-    const [isActivated, setIsActivated] = useState(false)
-
-    let mouseEnterHandler = () => {
-        setIsActivated(!isActivated)
-    }
-
-    let mouseLeaveHandler = () => {
-        setIsActivated(!isActivated)
-    }
 
     const itemRef = useRef(null)
     const handleIntersection = (entries) => {
@@ -41,9 +31,7 @@ export default function ServiceItem({ children, icons }) {
       }, []);
 
     return (
-        <div ref={itemRef} className={classes["faq-wrapper"]}
-            onMouseEnter={mouseEnterHandler}
-            onMouseLeave={mouseLeaveHandler}>
+        <div ref={itemRef} className={classes["faq-wrapper"]}>
             <div className={classes["faq-wrapper__activator"]}>
                 <div className={classes["faq-wrapper__activator__left"]}>
                     <div className={classes["faq-wrapper__activator__left__dot"]}></div>
