@@ -1,8 +1,8 @@
 import classes from "./ServiceItem.module.scss"
 import { useRef, useEffect } from "react"
-export default function ServiceItem({ children, icons }) {
+export default function ServiceItem({ children, icons, isActivated=0 }) {
 
-
+    
     const itemRef = useRef(null)
     const handleIntersection = (entries) => {
         entries.forEach((entry) => {
@@ -25,11 +25,19 @@ export default function ServiceItem({ children, icons }) {
           observer.observe(itemRef.current);
         }
     
+          if(isActivated && window.innerWidth<1000){
+            itemRef.current.classList.add(classes.activated)
+            document.addEventListener("click",()=>{
+              itemRef.current.classList.remove(classes.activated)
+            })
+          }
+
         return () => {
           observer.disconnect();
         };
-      }, []);
-
+      }, [isActivated]);
+   
+      
     return (
         <div ref={itemRef} className={classes["faq-wrapper"]}>
             <div className={classes["faq-wrapper__activator"]}>

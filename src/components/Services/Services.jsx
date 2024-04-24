@@ -25,7 +25,7 @@ export default function Services({sectionRef}) {
         <section ref={sectionRef} className={classes["services"]}>
             <h2 className={classes["services__header"]}>Our services</h2>
             <div className={classes["services__content"]}>
-                <ServiceItem icons={[
+                <ServiceItem isActivated={1} icons={[
                     <TIcon />,
                     <WordIcon />,
                     <AIIcon />
