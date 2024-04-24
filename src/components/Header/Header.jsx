@@ -19,11 +19,17 @@ export default function Header({
 
   const handleBurger = () =>{
     setBurgerVisibility(!burgerVisibility);
+    if(!burgerVisibility){
+      document.body.style.overflowY="hidden"
+    }else{
+      document.body.style.overflowY="scroll"
+
+    }
   }
 
   const handleNavigation = (ref) => {
     if (ref && ref.current) {
-      ref.current.scrollIntoView({ behavior: "smooth" });
+      ref.current.scrollIntoView({ behavior: "smooth"});
     }
   };
 
