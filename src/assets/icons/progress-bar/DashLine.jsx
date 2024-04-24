@@ -15,7 +15,7 @@ export default function DashLine({height = 1745}) {
         x2="0.500076"
         y2="-2.18556e-08"
         stroke="white"
-        stroke-dasharray="4 4"
+        strokeDasharray="4 4"
       />
     </svg>
   );

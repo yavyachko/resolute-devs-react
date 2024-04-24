@@ -52,7 +52,7 @@ export default function PortfolioItem({
           <p>
             {children}
             <span className="portfolioItem__descriptionYear">
-              <div className="blur"></div>
+              <span className="blur"></span>
               {year}
             </span>
           </p>
