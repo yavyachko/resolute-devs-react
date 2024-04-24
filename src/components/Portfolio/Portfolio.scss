@@ -109,6 +109,14 @@
 
         h3 {
             margin-bottom: var(--space-xs);
+            svg{
+                margin-left: 12px;
+                height: 100%;
+                transform: scale(140%);
+                @include w-min(1000px){
+                    display: none;
+                }
+            }
         }
 
         p {
