@@ -2,24 +2,36 @@ import axios from "axios";
 import UserIcon from "../../assets/icons/UserIcon"
 import EmailIcon from "../../assets/icons/EmailIcon"
 import PhoneIcon from "../../assets/icons/PhoneIcon"
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useRef, useState } from "react";
 
 export default function Form() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [tel, setTel] = useState("");
   const [msg, setMsg] = useState("");
+  const nameRef = useRef(null);
+  const emailRef = useRef(null);
+  const telRef = useRef(null);
+  const msgRef = useRef(null);
+
+
+  const handleFocus = (ref) =>{
+    ref.current.classList.add('active')
+  }
 
   const handleNameChange = (e) => {
     setName(e.target.value);
   };
-
+  
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
   };
 
   const handleTelChange = (e) => {
-    setTel(e.target.value);
+    const inputValue = e.target.value;
+    const numericValue = inputValue.replace(/[^0-9+]/g, "");
+  
+    setTel(numericValue);
   };
 
   const handleMsgChange = (e) => {
@@ -246,37 +258,55 @@ export default function Form() {
       <div className="IconWrapper">
         <UserIcon/>
         <input
+            ref={nameRef}
+          name="name"
           type="text"
           placeholder="Your name"
           value={name}
+          required={true}
+          minLength="2"
           onChange={handleNameChange}
+          onFocus={()=>handleFocus(nameRef)}
         />
       </div>
       <div>
         <div className="IconWrapper">
         <EmailIcon/>
           <input
+            ref={emailRef}
+            name="email"
             type="email"
             placeholder="Email"
             value={email}
+            required={true}
             onChange={handleEmailChange}
+            onFocus={()=>handleFocus(emailRef)}
           />
         </div>
         <div className="IconWrapper">
           <PhoneIcon/>
           <input
+            ref={telRef}
+            name="telephone"
             type="tel"
             placeholder="Phone"
             value={tel}
+            required={true}
+            maxLength="15"
             onChange={handleTelChange}
+            onFocus={()=>handleFocus(telRef)}
           />
         </div>
       </div>
       <input
+        ref={msgRef}
+        name="message"
         type="text"
         placeholder="Message"
         value={msg}
+        required={true}
         onChange={handleMsgChange}
+        onFocus={()=>handleFocus(msgRef)}
       />
       <button type="submit">Send</button>
     </form>

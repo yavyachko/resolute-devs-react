@@ -71,6 +71,10 @@ input:focus{
     color: var(--color-accent-main);
     transition: 0.3s;
 }
+.active:invalid{
+    border: 2px solid #C73636;
+    color: #C73636;
+}
 [placeholder="Your name"] {
     background: url(../../assets/icons/UserIcon.jsx) fixed 10px;
     width:100%;
@@ -135,6 +139,16 @@ div > .IconWrapper{
     .user{
         fill:none;
         stroke: var(--color-accent-main)
+    }
+} 
+.IconWrapper:has(.active:invalid){
+    path{
+        fill: #C73636;
+        transition: all 0.3s;
+    }
+    .user{
+        fill:none;
+        stroke: #C73636
     }
 } 
 
