@@ -164,7 +164,8 @@
         transition: all 0.4s;
     }
     h3{
-        color: var(--color-accent-main)
+        color: var(--color-accent-main);
+        transition: all 0.3s;
     }
     .portfolioItem__visit{
         opacity: 1;

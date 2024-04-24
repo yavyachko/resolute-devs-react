@@ -1,8 +1,9 @@
 import axios from "axios";
-import UserIcon from "../../assets/icons/UserIcon"
-import EmailIcon from "../../assets/icons/EmailIcon"
-import PhoneIcon from "../../assets/icons/PhoneIcon"
+import UserIcon from "../../assets/icons/UserIcon";
+import EmailIcon from "../../assets/icons/EmailIcon";
+import PhoneIcon from "../../assets/icons/PhoneIcon";
 import React, { useCallback, useRef, useState } from "react";
+import MessageIcon from "../../assets/icons/MessageIcon";
 
 export default function Form() {
   const [name, setName] = useState("");
@@ -14,15 +15,14 @@ export default function Form() {
   const telRef = useRef(null);
   const msgRef = useRef(null);
 
-
-  const handleFocus = (ref) =>{
-    ref.current.classList.add('active')
-  }
+  const handleFocus = (ref) => {
+    ref.current.classList.add("active");
+  };
 
   const handleNameChange = (e) => {
     setName(e.target.value);
   };
-  
+
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
   };
@@ -30,7 +30,7 @@ export default function Form() {
   const handleTelChange = (e) => {
     const inputValue = e.target.value;
     const numericValue = inputValue.replace(/[^0-9+]/g, "");
-  
+
     setTel(numericValue);
   };
 
@@ -256,9 +256,9 @@ export default function Form() {
   return (
     <form onSubmit={handleSubmit}>
       <div className="IconWrapper">
-        <UserIcon/>
+        <UserIcon />
         <input
-            ref={nameRef}
+          ref={nameRef}
           name="name"
           type="text"
           placeholder="Your name"
@@ -266,12 +266,12 @@ export default function Form() {
           required={true}
           minLength="2"
           onChange={handleNameChange}
-          onFocus={()=>handleFocus(nameRef)}
+          onFocus={() => handleFocus(nameRef)}
         />
       </div>
       <div>
         <div className="IconWrapper">
-        <EmailIcon/>
+          <EmailIcon />
           <input
             ref={emailRef}
             name="email"
@@ -280,11 +280,11 @@ export default function Form() {
             value={email}
             required={true}
             onChange={handleEmailChange}
-            onFocus={()=>handleFocus(emailRef)}
+            onFocus={() => handleFocus(emailRef)}
           />
         </div>
         <div className="IconWrapper">
-          <PhoneIcon/>
+          <PhoneIcon />
           <input
             ref={telRef}
             name="telephone"
@@ -294,20 +294,23 @@ export default function Form() {
             required={true}
             maxLength="15"
             onChange={handleTelChange}
-            onFocus={()=>handleFocus(telRef)}
+            onFocus={() => handleFocus(telRef)}
           />
         </div>
       </div>
-      <input
-        ref={msgRef}
-        name="message"
-        type="text"
-        placeholder="Message"
-        value={msg}
-        required={true}
-        onChange={handleMsgChange}
-        onFocus={()=>handleFocus(msgRef)}
-      />
+      <div className="IconWrapper">
+        <MessageIcon />
+        <input
+          ref={msgRef}
+          name="message"
+          type="text"
+          placeholder="Message"
+          value={msg}
+          required={true}
+          onChange={handleMsgChange}
+          onFocus={() => handleFocus(msgRef)}
+        />
+      </div>
       <button type="submit">Send</button>
     </form>
   );
