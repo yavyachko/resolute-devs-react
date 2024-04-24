@@ -1,4 +1,7 @@
 import axios from "axios";
+import UserIcon from "../../assets/icons/UserIcon"
+import EmailIcon from "../../assets/icons/EmailIcon"
+import PhoneIcon from "../../assets/icons/PhoneIcon"
 import React, { useCallback, useState } from "react";
 
 export default function Form() {
@@ -31,10 +34,10 @@ export default function Form() {
         return;
       }
       axios
-      .post('http://localhost:8081/send-email', {
-        from: email,
-        subject: 'Application form Resolute',
-        text:`<!DOCTYPE html>
+        .post("http://localhost:8081/send-email", {
+          from: email,
+          subject: "Application form Resolute",
+          text: `<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -221,44 +224,53 @@ export default function Form() {
     </div>
   </body>
 </html>
-`
-      })
-      .then(() => {
-        console.success('Email was sent succesfully');
-        setEmail('')
-        setMsg('')
-        setName('')
-        setTel('')
-      })
-      .catch(e => {
-        console.error('Unexpected error sending an email');
-        console.error(e);
-      });
+`,
+        })
+        .then(() => {
+          console.success("Email was sent succesfully");
+          setEmail("");
+          setMsg("");
+          setName("");
+          setTel("");
+        })
+        .catch((e) => {
+          console.error("Unexpected error sending an email");
+          console.error(e);
+        });
     },
     [email, msg, name, tel]
   );
 
   return (
     <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        placeholder="Your name"
-        value={name}
-        onChange={handleNameChange}
-      />
+      <div className="IconWrapper">
+        <UserIcon/>
+        <input
+          type="text"
+          placeholder="Your name"
+          value={name}
+          onChange={handleNameChange}
+        />
+      </div>
       <div>
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={handleEmailChange}
-        />
-        <input
-          type="tel"
-          placeholder="Phone"
-          value={tel}
-          onChange={handleTelChange}
-        />
+        <div className="IconWrapper">
+        <EmailIcon/>
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={handleEmailChange}
+          />
+        </div>
+        <div className="IconWrapper">
+          <PhoneIcon/>
+          <input
+            type="tel"
+            placeholder="Phone"
+            value={tel}
+            onChange={handleTelChange}
+          />
+        </div>
       </div>
       <input
         type="text"
