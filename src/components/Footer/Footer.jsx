@@ -15,12 +15,12 @@ export default function Footer() {
   }
   return (
     <footer className='footer'>
-        <div className="footer__wrapper" onClick={logoHandler}>
-            <LogoIcon/>
+        <div className="footer__wrapper">
+            <div onClick={logoHandler}><LogoIcon /></div>
             <div className="footer__social">
-                <a href="#main"><TelegramIcon/></a>
-                <a href="#main"><InstagramIcon/></a>
-                <a href="#main"><LinkedInIcon/></a>
+                <a href="#"><TelegramIcon/></a>
+                <a href="#"><InstagramIcon/></a>
+                <a href="#"><LinkedInIcon/></a>
             </div>
         </div>
     </footer>

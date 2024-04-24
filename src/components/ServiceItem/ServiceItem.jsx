@@ -1,5 +1,6 @@
 import { useState } from "react"
 import classes from "./ServiceItem.module.scss"
+import { useRef, useEffect } from "react"
 export default function ServiceItem({ children, icons }) {
     const [isActivated, setIsActivated] = useState(false)
 
@@ -11,8 +12,35 @@ export default function ServiceItem({ children, icons }) {
         setIsActivated(!isActivated)
     }
 
+    const itemRef = useRef(null)
+    const handleIntersection = (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            itemRef.current.classList.add(classes.animated);
+          }
+        });
+      };
+    
+      useEffect(() => {
+        const options = {
+          root: null, 
+          rootMargin: '0px',
+          threshold: 0.5, 
+        };
+    
+        const observer = new IntersectionObserver(handleIntersection, options);
+    
+        if (itemRef.current) {
+          observer.observe(itemRef.current);
+        }
+    
+        return () => {
+          observer.disconnect();
+        };
+      }, []);
+
     return (
-        <div className={classes["faq-wrapper"]}
+        <div ref={itemRef} className={classes["faq-wrapper"]}
             onMouseEnter={mouseEnterHandler}
             onMouseLeave={mouseLeaveHandler}>
             <div className={classes["faq-wrapper__activator"]}>

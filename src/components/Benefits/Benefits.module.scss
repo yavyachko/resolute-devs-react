@@ -17,5 +17,12 @@
         justify-content: space-between;
         width: 100%;
         flex-wrap: wrap;
+        transform: translateY(50px);
+        opacity: 0;
     }
+}
+.animated{
+    opacity: 1;
+    transform: translateY(0);
+    transition: 1s;
 }

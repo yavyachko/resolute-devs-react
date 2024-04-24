@@ -1,13 +1,41 @@
 import VerticalBar from "../../assets/icons/VerticalBar"
 import HorizontalBar from "../../assets/icons/HorizontalBar"
 import classes from "./WebIntro.module.scss"
+import { useRef, useEffect } from "react"
 import "./WebIntro.module.scss"
 
 export default function WebIntro() {
+    const itemRef = useRef(null)
+    const handleIntersection = (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            itemRef.current.classList.add(classes.animated);
+          }
+        });
+      };
+    
+      useEffect(() => {
+        const options = {
+          root: null, 
+          rootMargin: '0px',
+          threshold: 0.3, 
+        };
+    
+        const observer = new IntersectionObserver(handleIntersection, options);
+    
+        if (itemRef.current) {
+          observer.observe(itemRef.current);
+        }
+    
+        return () => {
+          observer.disconnect();
+        };
+      }, []);
     return (
-        <div className={classes.heading} id="main">
+        
+        <div className={classes.heading}>
             <div className={classes['heading--left']}>
-                <p>LET US BUILD <span>YOUR DREAM</span></p>
+                <p ref={itemRef}>LET US BUILD <span>YOUR DREAM</span></p>
                 <VerticalBar />
             </div>
             <div className={classes["heading--right"]}>

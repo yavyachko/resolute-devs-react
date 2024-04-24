@@ -27,7 +27,10 @@
     @include w-max(500){
       font-size: var(--font-size-p3-mobile);
     }
-
+    p{
+      opacity: 0;
+      transform: translateX(50px);
+    }
     svg {
       @include w-max(777px) {
         display: none;
@@ -78,4 +81,10 @@
       }
     }
   }
+  .animated{
+    opacity: 1;
+    transform: translateX(0);
+    transition: all 1s;
+  }
 }
+

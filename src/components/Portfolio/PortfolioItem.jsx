@@ -1,7 +1,8 @@
 import React from "react";
 import ArrowIcon from "../../assets/icons/ArrowIcon";
-
+import { useEffect, useRef } from "react";
 import "./Portfolio.scss";
+import classes from "./Portfolio.scss"
 export default function PortfolioItem({
   heading,
   children,
@@ -9,9 +10,38 @@ export default function PortfolioItem({
   year,
   link,
 }) {
+
+  const itemRef = useRef(null)
+    const handleIntersection = (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            itemRef.current.classList.add("animated");
+          }
+        });
+      };
+    
+      useEffect(() => {
+        const options = {
+          root: null, 
+          rootMargin: '0px',
+          threshold: 0.3, 
+        };
+    
+        const observer = new IntersectionObserver(handleIntersection, options);
+    
+        if (itemRef.current) {
+          observer.observe(itemRef.current);
+        }
+    
+        return () => {
+          observer.disconnect();
+        };
+      }, []);
+
+
   return (
     <a href={link} target="blank">
-      <div className="portfolioItem">
+      <div ref={itemRef} className="portfolioItem">
         <div className="portfolioItem__imgWrapper">
           <div className="portfolioItem__visit">
             Visit website<ArrowIcon />

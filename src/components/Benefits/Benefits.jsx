@@ -5,14 +5,44 @@ import UXIcon from '../../assets/icons/benefits/UXIcon'
 import PenIcon from '../../assets/icons/benefits/PenIcon'
 import ResultsIcon from '../../assets/icons/benefits/ResultsIcon'
 import SupportIcon from '../../assets/icons/benefits/SupportIcon'
+import { useRef, useEffect } from "react";
 
 export default function Benefits({sectionRef}) {
+
+    const itemRef = useRef(null)
+    const handleIntersection = (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            itemRef.current.classList.add(classes.animated);
+          }
+        });
+      };
+    
+      useEffect(() => {
+        const options = {
+          root: null, 
+          rootMargin: '0px',
+          threshold: 0.3, 
+        };
+    
+        const observer = new IntersectionObserver(handleIntersection, options);
+    
+        if (itemRef.current) {
+          observer.observe(itemRef.current);
+        }
+    
+        return () => {
+          observer.disconnect();
+        };
+      }, []);
+
+
     return (
         <section ref={sectionRef} className={classes["benefits"]}>
             <h2 className={classes["benefits__heading"]}>
                 Benefits
             </h2>
-            <div className={classes["benefits__content"]}>
+            <div ref={itemRef} className={classes["benefits__content"]}>
                 <BenefitItem
                     heading={"Customized Solutions"}
                     image={<BulbIcon/>}>
