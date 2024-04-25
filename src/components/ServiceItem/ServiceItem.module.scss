@@ -16,7 +16,7 @@
   transition: all 0.3s ease-out;
   border: 1px solid var(--color-grey-main);
   border-radius: 14px;
-
+  @include w-min(1000px){
   &:hover {
     border: 1px solid var(--color-grey-main);
     background-color: var(--color-grey-secondary);
@@ -41,7 +41,7 @@
       }
     }
   }
-
+  }
   &__activator {
     padding: var(--space-sm) var(--space-ml);
     display: flex;
