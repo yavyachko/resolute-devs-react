@@ -1,24 +1,31 @@
 @import '../../styles/basics/media';
-.footer{
+
+.footer {
     background-color: var(--color-grey-secondary);
     padding: var(--space-ml) 100px;
 
-    &__wrapper{
+    &__wrapper {
         display: flex;
         justify-content: space-between;
-        width:100%;
-        @include w-max(630px){
+        width: 100%;
+
+        @include w-max(630px) {
             flex-direction: column;
             align-items: center;
             gap: var(--space-m)
         }
     }
-    &__social{
+
+    &__social {
         display: flex;
         gap: var(--space-sm)
     }
-    svg:hover path{
-        fill: var(--color-accent-main);
-        transition: 0.3s;
+
+    svg:hover {
+        cursor: pointer;
+        path {
+            fill: var(--color-accent-main);
+            transition: 0.3s;
+        }
     }
 }

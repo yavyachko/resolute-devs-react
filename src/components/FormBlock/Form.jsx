@@ -5,11 +5,13 @@ import PhoneIcon from "../../assets/icons/PhoneIcon";
 import React, { useCallback, useRef, useState } from "react";
 import MessageIcon from "../../assets/icons/MessageIcon";
 
-export default function Form() {
+export default function Form({setState}) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [tel, setTel] = useState("");
   const [msg, setMsg] = useState("");
+
+
   const nameRef = useRef(null);
   const emailRef = useRef(null);
   const telRef = useRef(null);
@@ -45,6 +47,7 @@ export default function Form() {
         console.error("Some fields are still empty");
         return;
       }
+      setState("pending");
       axios
         .post("http://localhost:8081/send-email", {
           from: email,
@@ -244,15 +247,16 @@ export default function Form() {
           setMsg("");
           setName("");
           setTel("");
+          setState("success")
         })
         .catch((e) => {
+          setState("rejected")
           console.error("Unexpected error sending an email");
           console.error(e);
         });
     },
-    [email, msg, name, tel]
+    [email, msg, name, tel, setState]
   );
-
   return (
     <form onSubmit={handleSubmit}>
       <div className="IconWrapper">

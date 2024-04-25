@@ -23,8 +23,10 @@
         width:30.5%;
         flex-shrink: 0;
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
+        gap: var(--space-s);
         h3{
             line-height: var(--line-height-standart);
             margin:0
@@ -35,6 +37,11 @@
         }
         @include w-max(1000px){
             padding:20px
+        }
+        p{
+            font-family: var(--font-roboto-regular);
+            font-size: var(--font-size-p1-pc-tablet-mobile);
+            text-align: center;
         }
     }
 }
