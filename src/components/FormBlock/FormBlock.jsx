@@ -20,13 +20,20 @@ export default function FormBlock({ sectionRef }) {
       <p>Application successfully sent!</p>
       </>
     );
-    } else {
+    } else if(formStatus==="rejected"){
       return (
         <>
           <CrossIconOutlined/>
           <p>Oooops... something went wrong, try again</p>
         </>
       );
+    }else{
+      return(
+        <>
+        <div className="loader"></div>
+        <p>Just a few more seconds.</p>
+        </>
+      )
     }
   };
 
